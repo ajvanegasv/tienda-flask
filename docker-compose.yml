@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  db:
+    imagen: postgres:15
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=tienda_flask
+    ports:
+      - 5434:5432
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    env_file:
+      - .env
+volumes:
+  postgres:
+    name: tienda_flask
