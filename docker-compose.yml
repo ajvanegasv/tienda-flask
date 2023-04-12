@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   db:
-    imagen: postgres:15
+    image: postgres:15
     restart: unless-stopped
     environment:
       - POSTGRES_USER=postgres

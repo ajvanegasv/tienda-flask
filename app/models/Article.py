@@ -1,7 +1,8 @@
-from app import db
 import datetime
 
-class Article:
+from app import db
+
+class Article(db.Model):
 
 	__tablename__ = 'article'
 	id = db.Column(db.Integer, primary_key=True)
@@ -13,3 +14,6 @@ class Article:
 	def __init__(self, name, value):
 		self.name = name
 		self.value = value
+	
+	def __repr__(self) -> str:
+		return f'<Article {self.name}>'
