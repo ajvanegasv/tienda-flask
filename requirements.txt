@@ -2,3 +2,4 @@ Flask
 Flask-SQLAlchemy
 python-dotenv
 Flask-migrate
+flask-restx
