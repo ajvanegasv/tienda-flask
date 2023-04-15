@@ -1,7 +1,6 @@
 from app.models import Article
-from app import db
 
 def getAllArticles():
-    articles = db.session.execute(Article).scalars()
+    articles = Article.query.all()
 
     return articles

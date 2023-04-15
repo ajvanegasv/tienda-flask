@@ -1,10 +1,10 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
 from os import environ
 
-db = SQLAlchemy();
-migrate = Migrate();
+from .extensions import (db, migrate)
+from .article import article_bp
+
+
 
 def create_app() -> Flask:
     app = Flask(__name__)
@@ -12,4 +12,8 @@ def create_app() -> Flask:
     db.init_app(app)
     migrate.init_app(app, db)
 
+    #Blueprint register
+    app.register_blueprint(article_bp)
+
     return app
+
